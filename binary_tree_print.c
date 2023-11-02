@@ -1,4 +1,4 @@
-#include "binary_tress.h"
+#include "binary_trees.h"
 
 /* Original code from http://stackoverflow.com/a/13755911/5184480 */
 
