@@ -4,22 +4,21 @@
  * binary_tree_is_perfect - checks if a binary tree is perfect
  * @tree: pointer to the root node
  *
- * Return: 0 if tree is NULL, 1 if perfect
+ * Return: 0 if tree is NULL or not perfect, 1 if perfect
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	size_t left_depth, right_depth;
+	size_t left_height = 0, right_height = 0;
 
-	/* empty tree is considered perfect */
 	if (tree == NULL)
 		return (0);
 
-	right_depth = binary_tree_depth(tree);
-	left_depth = binary_tree_depth(tree);
+	left_height = binary_tree_height(tree->left);
+	right_height = binary_tree_height(tree->right);
 
-	if (left_depth == right_depth)
-		return (binary_tree_is_perfect(tree->left) &&
-				binary_tree_is_perfect(tree->right));
+	/* check if the left and right subtrees have the same height */
+	if (left_height == right_height)
+		return (1);
 
 	return (0);
 }
